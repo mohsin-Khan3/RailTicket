@@ -1,0 +1,98 @@
+﻿@model RailTicket.Models.User_Registration
+
+@{
+    ViewData["Title"] = "User_Registrations";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript example</title>
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+
+        #Info {
+            color: white;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201909/locomotive-222174_960_720.jpeg?size=1200:675');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 2000px 920px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container" id="Info">
+        <h2>Registration</h2>
+        <form asp-action="User_Registrations1" asp-controller="Sec" method="post">
+           <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="First_Name"></label>
+                    <input asp-for="First_Name" class="form-control" required />
+                    <span asp-validation-for="First_Name" class="text-danger"></span>
+                </div>
+           </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Last_Name"></label>
+                    <input asp-for="Last_Name" class="form-control" required />
+                    <span asp-validation-for="Last_Name" class="text-danger"></span>
+                </div>
+           </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Gender"></label>
+                     <Select asp-for="Gender" class="form-control">
+                         <option value="Select"> Select</option>
+                         <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+           <div class="row">
+
+                <div class="form-group col-md-2">
+                    <label asp-for="Address"></label>
+                    <input asp-for="Address" class="form-control" required />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+             
+           </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Pincode"></label>
+                    <input asp-for="Pincode" class="form-control" required />
+                    <span asp-validation-for="Pincode" class="text-danger"></span>
+                </div>
+            </div>
+           <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" required />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+           </div>
+             <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </div>
+             </div>
+                    <br> <br> <br>
+                   <div class="form-group ">
+                       <input type="submit" value="Register" class="btn btn-primary" />
+                   </div>
+               
+          
+        </form>
+    </div>
+
+
+</body>
+
+</html>

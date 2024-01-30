@@ -1,0 +1,94 @@
+﻿@model RailTicket.Models.Passenger
+
+@{
+    ViewData["Title"] = "Passengers";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript example</title>
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+
+        #Info {
+            color: white;
+        }
+
+        body {
+           
+            font-family: Arial, sans-serif;
+            background-image: url('https://p0.pikist.com/photos/959/15/night-railway-station-lights-lighting-train-travel-late-dark-arrival.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 2000px 920px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container" id="Info">
+        <h2>Passenger Details</h2>
+        <form asp-action="Passengers1" asp-controller="Sec" method="post">
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Passenger_Name"></label>
+                    <input asp-for="Passenger_Name" class="form-control" required />
+                    <span asp-validation-for="Passenger_Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Age"></label>
+                    <input asp-for="Age" class="form-control" required />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Aadhar_No"></label>
+                    <input asp-for="Aadhar_No" type="number" class="form-control" required />
+                    <span asp-validation-for="Aadhar_No" class="text-danger"></span>
+                </div>
+             </div>
+             <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Select_class"></label>
+                    <Select asp-for="Select_class" class="form-control">
+                         <option value="101"> Select</option>
+                         <option value="First Ac"> First Ac</option>
+                        <option value="Second Ac"> Second Ac</option>
+                        <option value="Third Ac"> Third Ac</option> 
+                        <option value="Sleeper"> Sleeper</option> 
+                        <option value="General"> General</option>
+                    </select>
+             
+                </div>
+            </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label asp-for="Price"></label>
+                      @*  <input asp-for="Price" class="form-control" required /> *@
+                        <Select asp-for="Price" class="form-control">
+                         <option value="101"> Price</option>
+                         <option value="1000"> 1000 First Ac</option>
+                        <option value="800"> 800 Second Ac</option>
+                        <option value=" 600"> 600 Third Ac</option> 
+                        <option value=" 350"> 350 Sleeper</option> 
+                        <option value="200"> 200 General</option>
+                    </select>
+                        @* <span asp-validation-for="Price" class="text-danger"></span> *@
+                    </div>
+                </div>
+            <br> <br> <br>
+            <div class="form-group ">
+                <input type="submit" value="Book Now" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

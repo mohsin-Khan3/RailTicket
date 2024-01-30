@@ -1,0 +1,112 @@
+﻿@model List<RailTicket.Models.Train>
+
+@{
+    ViewData["Title"] = "Trains";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript example</title>
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+
+        #Info {
+            color: white;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(' https://w0.peakpx.com/wallpaper/18/676/HD-wallpaper-train-station-high-quality.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 2000px 920px;
+        }
+    </style>
+
+</head>
+<body>
+   @*  <div class="container" id="Info">
+        <h2>Trains</h2>
+        <form asp-action="Trains1" asp-controller="Sec" method="post">
+
+            <div class="row">
+
+                <div class="form-group col-md-2">
+                    <label asp-for="Train_Name"></label>
+                    <input asp-for="Train_Name" class="form-control" required />
+                    <span asp-validation-for="Train_Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Train_No"></label>
+                    <input asp-for="Train_No" class="form-control" required />
+                    <span asp-validation-for="Train_No" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Seat_Available"></label>
+                    <input asp-for="Seat_Available" class="form-control" required />
+                    <span asp-validation-for="Seat_Available" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Arrival_Time"></label>
+                    <input type="time" asp-for="Arrival_Time" class="form-control" required />
+                    <span asp-validation-for="Arrival_Time" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label asp-for="Departure_Time"></label>
+                    <input type="time" asp-for="Departure_Time" class="form-control" required />
+                    <span asp-validation-for="Departure_Time" class="text-danger"></span>
+                </div>
+
+            </div>
+            <br> <br> <br>
+            <div class="form-group ">
+                <input type="submit" value="Select Train" class="btn btn-primary" />
+            </div>
+
+
+        </form>
+    </div> *@
+    <div id="mygrid" class="ag-theme-alpine" style="height: 300px; width:800px;"></div>
+    <script>
+        $(document).ready(function () {
+
+            var data = [
+
+            ];
+
+
+            $("#mygrid").kendoGrid({
+                dataSource: {
+                    data: @Html.Raw(Json.Serialize(Model)),
+                    pageSize: 10
+                },
+                columns: [
+                    { field: "tId", title: "TId" },
+                    { field: "train_Name", title: "Train Name" },
+                    { field: "train_No", title: "Train No" },
+                    { field: "seat_Available", title: " Seat Available" },
+                    { field: "arrival_Time", title: "Arrival Time" },
+                    { field: "departure_Time", title: "Departure Time" },
+                    { template: "<a href='/Sec/Passengers'>Proceed</a>", title: "Book Now" },
+                ],
+                pageable: true
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
